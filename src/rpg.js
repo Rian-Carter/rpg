@@ -10,6 +10,7 @@ export default class Character {
   this.con = 0;
   this.hp = 0;
   this.level = 1;
+  this.bonus = 1;
 }
   
 diceRoll() {
@@ -23,7 +24,7 @@ statGenerator() {
   this.cha = this.diceRoll();
   this.wis = this.diceRoll();
   this.con = this.diceRoll();
-  this.hp = this.diceRoll();
+  this.hp = this.diceRoll() * this.bonus;
 }
 
 }

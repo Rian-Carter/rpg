@@ -13,7 +13,8 @@ describe ('Character', () => {
     expect(character.wis).toEqual(0);
     expect(character.con).toEqual(0);
     expect(character.hp).toEqual(0);
-    expect(character.level).toEqual(1);  
+    expect(character.level).toEqual(1);
+    expect(character.bonus).toEqual(1);  
   });
 
   describe ('diceRoll', () => {
@@ -38,12 +39,28 @@ describe('statGenerator', () => {
     expect(character.wis).toBeLessThanOrEqual(20);
     expect(character.con).toBeLessThanOrEqual(20);
     expect(character.hp).toBeLessThanOrEqual(20);
-    expect(character.level).toEqual(1); 
+    expect(character.level).toEqual(1);
+    expect(character.bonus).toEqual(1); 
 
+  });
+});
 
-  })
-})
+describe ('classBonus', () =>{
 
+  //need test for bonus 1
+  test('should return a specific bonus depending on class selection', () => {
+    let character = new Character();
+    character.statGenerator();
+    expect(character.hp).toBeLessThanOrEqual(20);
+  });
+  //test for bonus 2
+  test('should return a specific bonus depending on class selection', () => {
+    let character = new Character();
+    character.bonus = 2;
+    character.statGenerator();
+    expect(character.hp).toBeLessThanOrEqual(40);
+  });
+});
 
 
 });
