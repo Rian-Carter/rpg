@@ -60,6 +60,14 @@ describe ('classBonus', () =>{
     character.statGenerator();
     expect(character.hp).toBeLessThanOrEqual(40);
   });
+   //test for bonus 3
+   test('should return a specific bonus depending on class selection', () => {
+    let character = new Character();
+    character.bonus = 3;
+    character.statGenerator();
+    expect(character.hp).toBeLessThanOrEqual(60);
+  });
+  
 });
 
 
