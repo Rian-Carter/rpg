@@ -5,7 +5,7 @@ describe ('Character', () => {
   test('should returns character function', () => {
     let character = new Character("Z");
     expect(character.name).toEqual("");
-    expect(character.class).toEqual("");
+    expect(character.class).toEqual("Gingerbread");
     expect(character.str).toEqual(0);
     expect(character.dex).toEqual(0);
     expect(character.int).toEqual(0);
@@ -31,7 +31,7 @@ describe('statGenerator', () => {
     let character = new Character();
     character.statGenerator();
     expect(character.name).toEqual("");
-    expect(character.class).toEqual("");
+    expect(character.class).toEqual("Gingerbread");
     expect(character.str).toBeLessThanOrEqual(20);
     expect(character.dex).toBeLessThanOrEqual(20);
     expect(character.int).toBeLessThanOrEqual(20);
@@ -52,21 +52,42 @@ describe ('classBonus', () =>{
     let character = new Character();
     character.statGenerator();
     expect(character.hp).toBeLessThanOrEqual(20);
+    expect(character.str).toBeLessThanOrEqual(20);
   });
-  //test for bonus 2
+  
+  // test for bonus gingerbread Class
   test('should return a specific bonus depending on class selection', () => {
     let character = new Character();
-    character.bonus = 2;
-    character.statGenerator();
-    expect(character.hp).toBeLessThanOrEqual(40);
+    character.classBonus("Gingerbread")
+    expect(character.hp).toBeLessThanOrEqual(20);
+    expect(character.str).toBeLessThanOrEqual(20);
   });
-   //test for bonus 3
-   test('should return a specific bonus depending on class selection', () => {
+  
+  // test for Donkey Class
+    test('should return a specific bonus depending on class selection', () => {
+      let character = new Character();
+      character.bonus = 2;
+      character.classBonus("Donkey")
+      expect(character.hp).toBeLessThanOrEqual(40);
+      expect(character.str).toBeLessThanOrEqual(40);
+    });
+  //test for Ogre Class
+  test('should return a specific bonus depending on class selection', () => {
     let character = new Character();
     character.bonus = 3;
-    character.statGenerator();
+    character.classBonus("Ogre")
     expect(character.hp).toBeLessThanOrEqual(60);
+    expect(character.str).toBeLessThanOrEqual(60);
   });
+   //test for Dragon Class
+  test('should return a specific bonus depending on class selection', () => {
+    let character = new Character();
+    character.bonus = 4;
+    character.classBonus("Dragon")
+    expect(character.hp).toBeLessThanOrEqual(80);
+    expect(character.str).toBeLessThanOrEqual(80);
+  });
+
   
 });
 
