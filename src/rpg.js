@@ -11,8 +11,12 @@ export default class Character {
   this.hp = 0;
   this.level = 1;
   this.bonus = 1;
+  this.potion = 1;
+  this.armor = 0;
+  this.weapon = 0;
+  this.shield = 0;
 }
-  
+
 diceRoll() {
   return Math.floor(Math.random() * 20 + 1);
 }
@@ -50,8 +54,27 @@ classBonus(className) {
 //   Math.floor(Math.random() * 100) + "Gold Coins.";
 // }
 
+healthPotion() {
+  let potionValue = 40; 
+  this.potion -= 1;
+  if (this.potion >= 0) {
+    return this.hp = this.hp + potionValue;
+  } else return "need potions";
+}
 
+buyPotion() {
+  potionPrice = 100;
+  if (this.playersGold - potionPrice >=0) {
+    return this.potion + 1;
+  } else return "need more gold";
+}
 
-
+winning() {
+  if (this.enemyHp <= 0) {
+    return "Victory";
+  } else if (this.hp <= 0) {
+    return "You lose"
+  } 
+}
 }
 

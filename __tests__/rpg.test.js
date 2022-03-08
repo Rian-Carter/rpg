@@ -16,6 +16,7 @@ describe ('Character', () => {
     expect(character.level).toEqual(1);
     expect(character.bonus).toEqual(1);  
   });
+});
 
   describe ('diceRoll', () => {
 
@@ -41,7 +42,6 @@ describe('statGenerator', () => {
     expect(character.hp).toBeLessThanOrEqual(20);
     expect(character.level).toEqual(1);
     expect(character.bonus).toEqual(1); 
-
   });
 });
 
@@ -87,9 +87,16 @@ describe ('classBonus', () =>{
     expect(character.hp).toBeLessThanOrEqual(80);
     expect(character.str).toBeLessThanOrEqual(80);
   });
-
-  
 });
-
-
+  
+  //test for health potion
+  describe ('healthPotion' , () => {
+  
+  test('should return healthPotion function' , () => {
+    let character = new Character();
+    character.healthPotion();
+    expect(character.hp).toEqual(40);
+    expect(character.potion).toEqual(0);
+    
+  });
 });
