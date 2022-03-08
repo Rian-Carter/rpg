@@ -15,6 +15,7 @@ export default class Character {
   this.armor = 0;
   this.weapon = 0;
   this.shield = 0;
+  this.gold = 100;
 }
 
 diceRoll() {
@@ -59,22 +60,22 @@ healthPotion() {
   this.potion -= 1;
   if (this.potion >= 0) {
     return this.hp = this.hp + potionValue;
-  } else return "need potions";
+  } else
+    return this.hp;
+  }
 }
 
-buyPotion() {
-  potionPrice = 100;
-  if (this.playersGold - potionPrice >=0) {
-    return this.potion + 1;
-  } else return "need more gold";
-}
+// buyPotion() {
+//   potionPrice = 100;
+//   if (this.gold - potionPrice >=0) {
+//     return this.potion + 1;
+//   } else return "need more gold";
+// }
 
-winning() {
-  if (this.enemyHp <= 0) {
-    return "Victory";
-  } else if (this.hp <= 0) {
-    return "You lose"
-  } 
-}
-}
-
+// winning() {
+//   if (this.enemyHp <= 0) {
+//     return "Victory";
+//   } else (this.hp <= 0) {
+//     return "You lose"
+//   } 
+// }

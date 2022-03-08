@@ -89,14 +89,24 @@ describe ('classBonus', () =>{
   });
 });
   
-  //test for health potion
-  describe ('healthPotion' , () => {
+//test for health potion
+describe ('healthPotion' , () => {
   
   test('should return healthPotion function' , () => {
     let character = new Character();
     character.healthPotion();
     expect(character.hp).toEqual(40);
     expect(character.potion).toEqual(0);
-    
+    expect(character.hp).toBeGreaterThanOrEqual(0);
   });
+
+  // test for buy potion
+// describe ('buyPotion' , () => {
+//     test ('should return Characters starting gold value minus cost of potion' , () => {
+//       let character = new Character();
+//       character.gold(100);
+//       expect(character.gold).toEqual(100);
+//       expect(character.)
+//     })
+//   }
 });
