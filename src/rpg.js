@@ -63,14 +63,16 @@ healthPotion() {
   } else
     return this.hp;
   }
-}
 
-// buyPotion() {
-//   potionPrice = 100;
-//   if (this.gold - potionPrice >=0) {
-//     return this.potion + 1;
-//   } else return "need more gold";
-// }
+
+buyPotion() {
+  let potionPrice = 100;
+  this.gold -= potionPrice;
+  if (this.gold >=0) {
+    return this.potion += 1;
+  } else 
+  return 
+}
 
 // winning() {
 //   if (this.enemyHp <= 0) {
@@ -79,3 +81,4 @@ healthPotion() {
 //     return "You lose"
 //   } 
 // }
+}

@@ -101,12 +101,13 @@ describe ('healthPotion' , () => {
   });
 
   // test for buy potion
-// describe ('buyPotion' , () => {
-//     test ('should return Characters starting gold value minus cost of potion' , () => {
-//       let character = new Character();
-//       character.gold(100);
-//       expect(character.gold).toEqual(100);
-//       expect(character.)
-//     })
-//   }
-});
+describe ('buyPotion' , () => {
+  
+    test ('should return Characters starting gold value minus cost of potion' , () => {
+      let character = new Character();
+      character.buyPotion();
+      expect(character.gold).toEqual(0);
+      expect(character.potion).toEqual(2);
+  });
+})
+})
