@@ -11,11 +11,12 @@ export default class Character {
   this.hp = 0;
   this.level = 1;
   this.bonus = 1;
-  this.potion = 1;
-  this.armor = 0;
+  this.potion = 0;
+  this.armor = 0; // to be implemented 
   this.weapon = 0;
-  this.shield = 0;
+  this.shield = 0; // to be implemented 
   this.gold = 100;
+  // this.inventory = [];
 }
 
 diceRoll() {
@@ -48,37 +49,106 @@ classBonus(className) {
       this.bonus = 4;
       break;
   }
-  this.statGenerator()
+  this.statGenerator();
 }
 
-// generateGold() {
-//   Math.floor(Math.random() * 100) + "Gold Coins.";
-// }
+//Items
 
 healthPotion() {
   let potionValue = 40; 
-  this.potion -= 1;
-  if (this.potion >= 0) {
+  if (this.potion > 0) {
+    this.potion -= 1;
     return this.hp = this.hp + potionValue;
   } else
     return this.hp;
   }
 
 
-buyPotion() {
-  let potionPrice = 100;
-  this.gold -= potionPrice;
-  if (this.gold >=0) {
-    return this.potion += 1;
-  } else 
-  return 
+itemSword() {
+  let swordValue = 25;
+  if (this.weapon > 0) {
+      this.weapon -= 1;
+    return this.str = this.str + swordValue;
+  } else
+    return this.str;
 }
 
-// winning() {
-//   if (this.enemyHp <= 0) {
-//     return "Victory";
-//   } else (this.hp <= 0) {
-//     return "You lose"
-//   } 
-// }
+
+
+// Buy Section
+
+buySword() {
+  let swordPrice = 100;
+  if (this.gold >= 100) {
+    this.gold -= swordPrice;  
+    return this.weapon += 1;
+  } else
+    return this.gold;
 }
+
+buyPotion() {
+  let potionPrice = 100;
+  if (this.gold >= 100) {
+    this.gold -= potionPrice;
+    return this.potion += 1;
+  } else 
+    return this.gold;
+}
+
+
+// Battle Section
+
+// Core gameplay loop
+battle(enemy) {
+const characterRoll = this.diceRoll();
+const enemyRoll = enemy.diceRoll();
+const charAtk = this.str + this.dex + this.int + this.cha + this.wis + this.con;
+let charDamagePotential = parseInt(charAtk) + characterRoll;
+let enemyDamagePotential = enemy.atk + enemyRoll;
+// console.log("Character diceroll " + charDamagePotential);
+// console.log("Enemy diceroll " + enemyDamagePotential);
+if (charDamagePotential >= enemyDamagePotential) {
+  enemy.hp -= (charDamagePotential - enemyDamagePotential);
+  return this.endCombat(enemy);
+} else (charDamagePotential < enemyDamagePotential); {
+  this.hp -= (enemyDamagePotential - charDamagePotential);
+  return this.endCombat(enemy);
+}
+}
+
+endCombat(enemy) {
+  if(enemy.hp <= 0) {
+    return "Enemy health is " + " " + enemy.hp;
+  } else if (this.hp <= 0) {
+    return "Your health is " + " " + this.hp;
+  } else {
+    return this.battle(enemy);
+}
+
+}
+}
+
+// endCombat(enemy) {
+//   if(enemy.hp > this.hp) {
+//      return "Enemy health is " + " " + enemy.hp;
+//   } else if (this.hp > enemy.hp);
+//     return "Your health is " + " " + this.hp
+// }
+
+//endCombat will have 3 outcomes: Character wins and then levels up, Enemy wins and then Character goes to game over. Otherwise, continue to battle. 
+
+
+
+// levelUp(character) {
+// if(this.hp  )
+
+// }
+
+// generateGold() {
+//   Math.floor(Math.random() * 100) + "Gold Coins.";
+// }
+
+//to adjust enemy 
+// enemy.property
+
+//Math.abs() returns a true value

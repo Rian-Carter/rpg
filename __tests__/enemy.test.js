@@ -5,7 +5,7 @@ describe ('Enemy', () => {
   test('should return enemy function', () => {
   let enemy = new Enemy();
   expect(enemy.name).toEqual("");
-  expect(enemy.atk).toEqual(0);
+  expect(enemy.atk).toEqual(40);
   expect(enemy.hp).toEqual(0);
   expect(enemy.level).toEqual(1);
   expect(enemy.bonus).toEqual(1);
@@ -30,11 +30,11 @@ describe ('classRoll', () => {
 
   describe ('enemyGenerator', () => {
 
-    test('should return a specific class to enemy', () => {
+    test('should assign a specific class to enemy', () => {
       let enemy = new Enemy();
       enemy.enemyGenerator();
       expect(enemy.name).toEqual("");
-      expect(enemy.atk).toBeLessThanOrEqual(25);
+      expect(enemy.atk).toBeLessThanOrEqual(65);
       expect(enemy.hp).toBeLessThanOrEqual(25);
       expect(enemy.level).toEqual(1);
       expect(enemy.bonus).toBeLessThanOrEqual(4);
