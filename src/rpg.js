@@ -8,45 +8,69 @@ export default class Character {
   this.cha = 0;
   this.wis = 0;
   this.con = 0;
-  this.hp = 0;
-  this.level = 1; // do we still need this? Should this be repurposed to fight level or something?
-  this.bonus = 1;
+  this.hp = 250;
+  this.currentHp = 0;
+  this.level = 1;
   this.potion = 0;
-  this.armor = 0; // to be implemented 
+  this.armor = 0;
   this.weapon = 0;
-  this.shield = 0; // to be implemented 
   this.gold = 100;
-  // this.inventory = []; //Do we still need this?
+  this.totalGold = 0;
+  this.wins = 0;
+  this.xp = 0;
 }
+
+// levelUp() {
+//   this.xp = 0;
+//   if (xp = 100 ) {
+//   return this.level + 1, this.gold + 100, this.totalGold + 100, this.xp = 0;
+//   }
+//   }
+
 
 diceRoll() {
   return Math.floor(Math.random() * 20 + 1);
 }
 
 statGenerator() {
-  this.str = this.diceRoll() * this.bonus;
+  this.str = this.diceRoll();
   this.dex = this.diceRoll();
   this.int = this.diceRoll();
   this.cha = this.diceRoll();
   this.wis = this.diceRoll();
   this.con = this.diceRoll();
-  this.hp = this.diceRoll() * this.bonus;
+  // this.hp = this.diceRoll();
 }
 
 classBonus(className) {
   this.class = className;
   switch (this.class) {
     case ("Ogre"):
-      this.bonus = 3;
+      this.str + 20;
+      this.hp + 20;
+      this.currentHp + 20;
       break;
     case ("Donkey"):
-      this.bonus = 2;
+      this.wis + 20;
+      this.cha + 20;
       break;
     case ("Gingerbread"):
-      this.bonus = 1;
+      this.dex + 20;
+      this.con + 20;
       break;
     case ("Dragon"):
-      this.bonus = 4;
+      this.str + 20;
+      this.int + 20;
+      break;
+    case ("Princess Fiona"):
+      this.cha + 20;
+      this.hp + 20;
+      this.currentHp + 20;
+      break;
+    case ("Puss In Boots"):
+      this.int + 20;
+      this.hp + 20;
+      this.currentHp + 20;
       break;
   }
   this.statGenerator();
@@ -58,11 +82,10 @@ healthPotion() {
   let potionValue = 40; 
   if (this.potion > 0) {
     this.potion -= 1;
-    return this.hp = this.hp + potionValue;
+    return this.currentHp = this.currentHp + potionValue;
   } else
-    return this.hp;
+    return this.currentHp;
   }
-
 
 itemSword() {
   let swordValue = 25;
@@ -73,26 +96,16 @@ itemSword() {
     return this.str;
 }
 
-// itemArmor() {
-//   let armorValue = 25;
-//   if (this.hp? > 0) {
-//       this.weapon -= 1;
-//     return this.str = this.str + swordValue;
-//   } else
-//     return this.str;
-// }
-
+itemArmor() {
+  let armorValue = 25;
+  if (this.armor > 0) {
+      this.armor -= 1;
+    return this.hp = this.hp + armorValue;
+  } else
+    return this.hp;
+}
 
 // Buy Section
-
-buySword() {
-  let swordPrice = 100;
-  if (this.gold >= 100) {
-    this.gold -= swordPrice;  
-    return this.weapon += 1;
-  } else
-    return this.gold;
-}
 
 buyPotion() {
   let potionPrice = 100;
@@ -100,9 +113,35 @@ buyPotion() {
     this.gold -= potionPrice;
     return this.potion += 1;
   } else 
-    return this.gold;
+  return this.gold;
 }
 
+buySword() {
+  let swordPrice = 100;
+  if (this.gold >= 100) {
+    this.gold -= swordPrice;  
+    return this.weapon += 1;
+  } else
+  return this.gold;
+}
+
+buyArmor() {
+  let armorPrice = 100;
+  if (this.gold >= 100) {
+    this.gold -= armorPrice;  
+    return this.armor += 1;
+  } else
+  return this.gold;
+}
+
+generateGold() {
+  this.gold = this.gold + Math.floor(Math.random() * 100) + "Gold Coins.";
+  this.totalGold = this.gold + this.totalGold;
+}
+
+healthTracker() {
+  this.currentHp = this.hp;
+}
 
 // Battle Section
 
@@ -113,12 +152,10 @@ const enemyRoll = enemy.diceRoll();
 const charAtk = this.str + this.dex + this.int + this.cha + this.wis + this.con;
 let charDamagePotential = parseInt(charAtk) + characterRoll;
 let enemyDamagePotential = enemy.atk + enemyRoll;
-// console.log("Character diceroll " + charDamagePotential);
-// console.log("Enemy diceroll " + enemyDamagePotential);
 if (charDamagePotential >= enemyDamagePotential) {
   enemy.hp -= (charDamagePotential - enemyDamagePotential);
-  return this.endCombat(enemy);
-} else (charDamagePotential < enemyDamagePotential); {
+  return this.endCombat(enemy); 
+} else (charDamagePotential <= enemyDamagePotential); {
   this.hp -= (enemyDamagePotential - charDamagePotential);
   return this.endCombat(enemy);
 }
@@ -130,33 +167,7 @@ endCombat(enemy) {
   } else if (this.hp <= 0) {
     return "Your health is " + " " + this.hp;
   } else {
-    return this.battle(enemy);
+    return this.healthTracker() && this.battle(enemy) && this.wins +1 && this.xp + 50 && this.generateGold();
+    }
+  }
 }
-
-}
-}
-
-// endCombat(enemy) {
-//   if(enemy.hp > this.hp) {
-//      return "Enemy health is " + " " + enemy.hp;
-//   } else if (this.hp > enemy.hp);
-//     return "Your health is " + " " + this.hp
-// }
-
-//endCombat will have 3 outcomes: Character wins and then levels up, Enemy wins and then Character goes to game over. Otherwise, continue to battle. 
-
-
-
-// levelUp(character) {
-// if(this.hp  )
-
-// }
-
-// generateGold() {
-//   Math.floor(Math.random() * 100) + "Gold Coins.";
-// }
-
-//to adjust enemy 
-// enemy.property
-
-//Math.abs() returns a true value

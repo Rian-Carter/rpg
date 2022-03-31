@@ -13,7 +13,7 @@ return Math.floor(Math.random() * 4 + 1);
   }
 
   diceRoll() {
-    return Math.floor(Math.random() * 20 + 1);
+    return Math.floor(Math.random() * 30 + 1);
   }
 
 

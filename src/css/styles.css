@@ -1,5 +1,6 @@
 body {
   background: #8A9400;
+  background-image: url(/assets/images/img/intro-background.png);
 }
 
 .title {
@@ -17,3 +18,9 @@ body {
 .rpgui-button {
   margin: auto;
 }
+
+/* .intoImg, img{
+  display: block;
+      margin: 0 auto;
+      width: 60%;
+} */
