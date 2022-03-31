@@ -45,7 +45,7 @@ statGenerator() {
 classBonus(className) {
   this.class = className;
   switch (this.class) {
-    case ("Ogre"):
+    case ("Shrek"):
       this.str + 20;
       this.hp + 20;
       this.currentHp + 20;
@@ -54,7 +54,7 @@ classBonus(className) {
       this.wis + 20;
       this.cha + 20;
       break;
-    case ("Gingerbread"):
+    case ("Gingerbread Man"):
       this.dex + 20;
       this.con + 20;
       break;
