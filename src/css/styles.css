@@ -1,0 +1,19 @@
+body {
+  background: #8A9400;
+}
+
+.title {
+  font-size: 40px;
+  margin: 100px;
+}
+
+.button{
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  display: flex;  
+}
+
+.rpgui-button {
+  margin: auto;
+}

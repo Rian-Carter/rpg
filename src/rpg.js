@@ -9,14 +9,14 @@ export default class Character {
   this.wis = 0;
   this.con = 0;
   this.hp = 0;
-  this.level = 1;
+  this.level = 1; // do we still need this? Should this be repurposed to fight level or something?
   this.bonus = 1;
   this.potion = 0;
   this.armor = 0; // to be implemented 
   this.weapon = 0;
   this.shield = 0; // to be implemented 
   this.gold = 100;
-  // this.inventory = [];
+  // this.inventory = []; //Do we still need this?
 }
 
 diceRoll() {
@@ -73,6 +73,14 @@ itemSword() {
     return this.str;
 }
 
+// itemArmor() {
+//   let armorValue = 25;
+//   if (this.hp? > 0) {
+//       this.weapon -= 1;
+//     return this.str = this.str + swordValue;
+//   } else
+//     return this.str;
+// }
 
 
 // Buy Section

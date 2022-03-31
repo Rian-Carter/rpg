@@ -1,0 +1,55 @@
+{
+  "_from": "rpgui",
+  "_id": "rpgui@1.0.3",
+  "_inBundle": false,
+  "_integrity": "sha1-DcGmIFWAUBn/OQdhdzFxR2sQO8I=",
+  "_location": "/rpgui",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "rpgui",
+    "name": "rpgui",
+    "escapedName": "rpgui",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/rpgui/-/rpgui-1.0.3.tgz",
+  "_shasum": "0dc1a62055805019ff390761773171476b103bc2",
+  "_spec": "rpgui",
+  "_where": "/home/roberts/Desktop/epicodus/rpg",
+  "author": {
+    "name": "Ronen Ness"
+  },
+  "bugs": {
+    "url": "https://github.com/RonenNess/RPGUI/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Lightweight framework for old-school RPG GUI in web!",
+  "homepage": "http://ronenness.github.io/RPGUI/",
+  "keywords": [
+    "gui",
+    "rpg",
+    "game",
+    "interface",
+    "ui"
+  ],
+  "license": "Zlib",
+  "main": "",
+  "name": "rpgui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RonenNess/RPGUI.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.3"
+}

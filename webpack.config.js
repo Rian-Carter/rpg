@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -16,26 +17,28 @@ devServer: {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'rpg',
-      template: './src/index.html',
+      template: './src/index.html', 
       inject: 'body'
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: './src/rpgui/img/*', to: './assets/images/img/[name].[ext]'},
+        { from: './src/rpgui/img/icons/*', to: './assets/images/img/icons/[name].[ext]'},
+        { from: './src/rpgui/img/cursor/*', to: './assets/images/img/cursor/[name].[ext]'},
+        { from: './src/img/*', to: './assets/images/img/[name].[ext]'},
+        
+      ]
     })
   ],
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
-      {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: /node_modules|rpgui/,
         loader: "eslint-loader"
       },
       {
-        test: /\.(gif|png|jpe?g)$/,
+        test: /\.(css|min.js)$/,
         use: [
           {
             loader: 'file-loader',
@@ -46,7 +49,6 @@ devServer: {
           }
         ]
       },
-      
       {
         test:/\.html$/,
         use: [
