@@ -4,6 +4,24 @@
 // import './css/styles.css';
 import Character from './rpg.js';
 import Enemy from './enemy.js';
+import {Howl, Howler} from 'howler';
+
+let sound = new Howl({
+  src: [ './assets/sound/AllSlam.webm','./assets/sound/AllSlam.mp3'],
+  onplayerror: function() {
+    sound.once('unlock', function() {
+      sound.play();
+    });
+  }
+});
+
+
+
+// Play the sound.
+// sound.play();
+
+// Change global volume.
+Howler.volume(0.5);
 
 
 let character = new Character();

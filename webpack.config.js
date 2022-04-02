@@ -26,6 +26,7 @@ devServer: {
         { from: './src/rpgui/img/icons/*', to: './assets/images/img/icons/[name].[ext]'},
         { from: './src/rpgui/img/cursor/*', to: './assets/images/img/cursor/[name].[ext]'},
         { from: './src/img/*', to: './assets/images/img/[name].[ext]'},
+        { from: './src/sound/*', to: './assets/sound/[name].[ext]'},
         
       ]
     })
