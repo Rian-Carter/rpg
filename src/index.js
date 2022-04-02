@@ -1,7 +1,4 @@
-// import $ from 'jquery';
-// import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import './css/styles.css';
+import $ from 'jquery';
 import Character from './rpg.js';
 import Enemy from './enemy.js';
 import {Howl, Howler} from 'howler';
@@ -14,14 +11,19 @@ let sound = new Howl({
     });
   }
 });
-
-
-
-// Play the sound.
-// sound.play();
-
 // Change global volume.
 Howler.volume(0.5);
+
+$("#audioPlay").on("click", function(){
+  sound.play(); // this method for playing music
+});
+
+$("#audioPause").on("click", function(){
+  sound.pause(); // this method for pause music
+}); 
+
+
+
 
 
 let character = new Character();
@@ -31,20 +33,3 @@ let enemy = new Enemy();
 console.log(enemy.enemyGenerator());
 
 character.battle(enemy);
-
-
-//Battle Logic:
-// enemy.hp
-// enemy.atk
-// enemy.damagePotential = enemy.atk + random d20
-
-// player.atk = combined stats + relevant items
-// player.damagePotential = player.atk + random d20
-
-// player.damageActual = enemy.damagePotential - player.damagePotential
-// player.hp -= player.damageActual
-
-// OR 
-
-// enemy.damageActual = player.damagePotential - enemy.damagePotential
-// enemy.hp -= enemy.damageActual
