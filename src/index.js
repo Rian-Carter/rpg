@@ -12,13 +12,24 @@ let sound = new Howl({
   }
 });
 // Set global volume.
-Howler.volume(0.5);
+Howler.volume(0.35);
 
 // Change global volume
 
-$(function() {
-  $( "#audioVolumeSlider" ).slider();
-});
+$( function() {
+  $( "#audioVolumeSlider" ).slider({
+    value:35,
+    min: 0,
+    max: 100,
+    step: 5,
+    slide: function( event, ui ) {
+      $( "#amount" ).val( ui.value+"%");
+      console.log(($( "#audioVolumeSlider" ).slider( "value" ) / 100 )); //leave this in to show teammates
+      Howler.volume(($( "#audioVolumeSlider" ).slider( "value" ) / 100 ));
+    }
+  });
+  $( "#amount" ).val($( "#audioVolumeSlider" ).slider( "value" )+"%");
+} );
 
 
 $("audioVolumeSlider").on("click", function(){
