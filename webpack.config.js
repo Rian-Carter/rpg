@@ -34,6 +34,16 @@ devServer: {
   module: {
     rules: [
       {
+        test: require.resolve("jquery"),
+        loader: "expose-loader",
+        options: {
+          exposes: {
+            globalName: "$",
+            override: true,
+          },
+        },
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules|rpgui/,
         loader: "eslint-loader"

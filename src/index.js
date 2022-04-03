@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import 'jquery-ui/ui/widgets/slider';
 import Character from './rpg.js';
 import Enemy from './enemy.js';
 import {Howl, Howler} from 'howler';
@@ -11,8 +11,20 @@ let sound = new Howl({
     });
   }
 });
-// Change global volume.
+// Set global volume.
 Howler.volume(0.5);
+
+// Change global volume
+
+$(function() {
+  $( "#audioVolumeSlider" ).slider();
+});
+
+
+$("audioVolumeSlider").on("click", function(){
+  sound.play(); // this method for playing music
+});
+
 
 $("#audioPlay").on("click", function(){
   sound.play(); // this method for playing music
@@ -26,10 +38,12 @@ $("#audioPause").on("click", function(){
 
 
 
+
+
 let character = new Character();
-console.log(character.classBonus("Donkey"));
+// console.log(character.classBonus("Donkey"));
 
 let enemy = new Enemy();
-console.log(enemy.enemyGenerator());
+// console.log(enemy.enemyGenerator());
 
 character.battle(enemy);
