@@ -1,129 +1,424 @@
 <!DOCTYPE HTML>
 <html lang="en">
-
 <head>
 	<title>Swompé: A Donkey's Quest</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 	<!-- include rpgui -->
+	<link href="./css/normalize.css" rel="stylesheet" type="text/css" >
 	<link href="rpgui/rpgui.min.css" rel="stylesheet" type="text/css" >
-	<link rel="stylesheet" href="./css/styles.css" type="text/css">
 	<link rel="stylesheet" href="./styles/_icon.scss" type="css">
+	<link rel="stylesheet" href="./css/styles.css" type="text/css">
 	<script src="rpgui/rpgui.min.js"></script>
 	<script src="/bundle.js"></script>
-
-
-
 </head>
-
 <body>
+	<!-- <img src="/assets/images/img/shrek-into.png" alt="" id="bg-img"> -->
 	<div class="rpgui-content">
-		<!-- start screen -->
-
-		<!-- title/top -->
-		<!-- <div class="title">
-		<h1>Swompé: A Donkey's Quest</h1>
-	</div> -->
-
-	
-		
-		<!-- button center -->
-		<!-- <div class="button">
-		<button class="rpgui-button" type="button" style="width: fit-content;"><p>Start Game</p></button>
-	</div> -->
-
-
-		<!-- img -->
-		<!-- <div class="intoImg">
-			<img src="/assets/images/img/intro-background.png" alt="">
-		</div> -->
-    
-
-	<!-- character stats -->
-	<div class="rpgui-content">
-	<div class="rpgui-container framed rpgui-draggable" style="height:700px; width:360px; top: 50px; left: 50px;">
-		<h1>Donkey</h1>
-	<hr />
-	<label>Health:</label>
-	<div id="hp-bar" data-value="0.8" class="rpgui-progress red" style="width: auto;"></div>
-	<hr />
-		<label>Class</label>
-		<p>Wizard 🧙</p>
-		<hr />
-		<h1>Inventory</h1>
-            <hr />
-
-            <div class="rpgui-icon sword"></div>
-            <div class="rpgui-icon shield"></div>
-            <div class="rpgui-icon exclamation"></div>
-            <br /><br />
-
-            <div class="rpgui-icon potion-red"></div>
-            <div class="rpgui-icon potion-green"></div>
-            <div class="rpgui-icon potion-blue"></div>
-            <br /><br />
-
-            <div class="rpgui-icon weapon-slot"></div>
-            <div class="rpgui-icon shield-slot"></div>
-            <div class="rpgui-icon armor-slot"></div>
-            <br /><br />
-
-            <div class="rpgui-icon helmet-slot"></div>
-            <div class="rpgui-icon ring-slot"></div>
-            <div class="rpgui-icon potion-slot"></div>
-            <br /><br />
-
-            <div class="rpgui-icon magic-slot"></div>
-            <div class="rpgui-icon shoes-slot"></div> 
-            <div class="rpgui-icon empty-slot"></div>
-						
-            <br /><br />
-					</div>
-	</div> -->
-
-    <!-- all rpgui elements must be inside the rpgui-content -->
-	
-
-        <div class="rpgui-container framed rpgui-draggable" style="text-align:center; height:320px; width:240px; top: 50px; left: 50px;">
-            <p>RPGUI buttons</p>
-            <hr /><br />
-			
-			<div class="rpgui-center">
-				<button class="rpgui-button" type="button" style="width:100%"><p>New Game</p></button>
-			</div>
-
-			<div class="rpgui-center">
-				<button class="rpgui-button" type="button" style="width:90%"><p>Load</p></button>
-			</div>
-
-			<div class="rpgui-center">
-				<button class="rpgui-button" type="button" style="width:75%"><p>Exit</p></button>
-			</div>
-			
-        </div>
-
-        <div class="rpgui-container framed rpgui-draggable" style="text-align:center; height:360px; width:280px; top: 50px; left: 350px;">
-            <p>Audio</p>
-            <hr /><br />
-			
+		<div class="rpgui-container framed rpgui-draggable" style="text-align:center; height:360px; width:280px; top: 50px; left: 350px;">
+			<p>Audio</p>
+			<hr><br>
 			<div id="audioPlay" class="rpgui-center">
 				<button class="rpgui-button golden" type="button" style="width:100%"><p>Play</p></button>
 			</div>
-			
 			<div id="audioPause" class="rpgui-center">
 				<button class="rpgui-button golden" type="button" style="width:90%"><p>Pause</p></button>
 			</div>
-			
 			<div id="audioVolumeSlider">
 				<p>
-					<label for="amount">Volume</label>
-					<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+				<label for="amount">Volume</label>
+				<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
 				</p>
-				
-			<input class="rpgui-slider golden" type="range" min="0" max="100" value="35" step="5">
+				<input class="rpgui-slider golden" type="range" min="0" max="100" value="35" step="5">
+			</div>
+	</div>
+
+	<div id="titleScreen">
+		<!-- <img src="/assets/images/img/shrek-into.png" alt="" id="bg-img"> -->
+																										<!-- start screen -->
+																										<!-- title/top -->
+			<div class="title">
+				<h1>Swompé: A Donkey's Quest</h1>
+			</div>
+																										<!-- button center -->
+			<div class="button">
+				<button id="startGame" class="rpgui-button" type="button" style="width: fit-content;"><p>Start Game</p></button>
+			</div>
+		</div>
+	</div>
+																										<!-- end start screen -->
+
+
+
+																										<!-- character creator -->
+
+																										<!-- img -->
+	 <!-- <img src="/assets/images/img/shrek-into.png" alt="" id="bg-img">
+
+	<div id="createCharacter"> 
+		<div class="rpgui-content">
+			<div class="title">
+				<h1>Swompé: A Donkey's Quest</h1>
+			</div> -->
+																										<!-- instructions -->
+	<!-- <div class="rpgui-container framed-golden-2" style="height:300px; width:1100px; top: 220px; left: 725px; margin: 0 auto;">
+		<h2>Create Your Character</h2>
+		<hr />
+		<ul>
+			<li>Insert a name</li>
+			<br>
+			<li>Choose a class</li>
+			<br>
+			<li>Roll the dice to generate your stats</li>
+			<br>
+			<li>Click on the Shop button to purschase an item</li>
+			<br>
+			<li>Click the Begin Battle button once you have chosen an item</li>
+			<div class="shop-button" style="position:relative;">
+				<center><button class="rpgui-button" type="button" style="width:fit-content; margin: 0 auto;"><p>Ye Ol' Watering Hole</p></button></center>
+			</div> 				
+		</ul>
+	</div>  -->
+
+	<!-- character frame -->
+
+	<!-- <div id="character-frame">
+			<div class="rpgui-container framed" style="height:810px; width:460px; top: 400px; left: 250px; margin: 0 auto;">
+			<label>Your hero name:</label>
+							<input type="text" name="FirstName" value="Bob" placeholder="Hero name">
+							<br/><br/>
+							<label>Select class:</label>
+							<select class="rpgui-dropdown">
+									<option value="Orge" selected>Orge</option>
+									<option value="Donkey">Donkey</option>
+									<option value="Gingerbread">Gingerbread</option>
+									<option value="Dragon">Dragon</option>
+									<option value="Princess-Fiona">Princess Fiona</option>
+									<option value="Puss">Puss In Boots</option>
+							</select>
+							<br>
+							<hr />
+							<br>
+							<td><label for="hp" class="control-label">Health:</label></td>
+									<td><input id="input-hp" type="number" name="hp" value="0" class="form-control" disabled="disabled"></td>
+									<br><br><br>
+									
+
+							<td><label for="strength" class="control-label">Strength:</label></td>
+									<td><input id="input-str" type="number" name="strength" value="0" class="form-control" disabled="disabled"></td>
+									<br><br><br>
+
+									<td><label for="dexterity" class="control-label">Dexterity:</label></td>
+									<td><input id="input-dex" type="number" name="dexterity" value="0" class="form-control" disabled="disabled"></td>
+									<br><br><br>
+
+									<td><label for="intelligence" class="control-label">Intelligence:</label></td>
+									<td><input id="input-int" type="number" name="intelligence" value="0" class="form-control" disabled="disabled"></td>
+									<br><br><br>
+
+									<td><label for="charisma" class="control-label">Charisma:</label></td>
+									<td><input id="input-cha" type="number" name="charisma" value="0" class="form-control" disabled="disabled"></td>
+									<br><br><br>
+
+									<td><label for="wisdom" class="control-label">Wisdom:</label></td>
+									<td><input id="input-wis" type="number" name="wisdom" value="0" class="form-control" disabled="disabled"></td>
+									<br><br><br>
+
+									<td><label for="constitution" class="control-label">Constitution:</label></td>
+									<td><input id="input-con" type="number" name="constitution" value="0" class="form-control" disabled="disabled"></td>
+			</div>
+		</div>  -->
+
+
+	<!-- dice roll button -->
+			<!-- <img src="/assets/images/img/round-d20-roll.png" alt="" id="dice-roll"> -->
+
+			<!-- store button -->
+		<!--	 <div class="shop-button" style = "position:relative; left:50px;">
+				<button class="rpgui-button" type="button" style="width:fit-content; margin: 0 auto;"><p>Ye Ol' Watering Hole</p></button>
+			</div> 
+	-->
+
+			<!-- image reveal -->
+			<!-- <div class="rpgui-container framed" style="height:810px; width:460px; top: 400px; left: 1840px; margin: 0 auto;">
+			<p>character img</p>
 		</div>
 
-			
-        </div>
+		</div> 
+	</div> -->
+
+	<!-- end character creator -->
+
+
+	<!-- store -->
+
+	<!-- store img -->
+	<!--
+   <img src="/assets/images/img/shop.png" alt="shop" id="bg-img">
+
+	<div class="rpgui-content"> 
+
+		<div class="title">
+			<h1>Swompé: A Donkey's Quest</h1>
+		</div>  
+-->
+		<!-- shop title/instructions -->
+<!--
+		 <div class="rpgui-container framed-golden" style="height:330px; width:1100px; top: 220px; left: 660px; margin: 0 auto;">
+			<h2>Ye Ol' Watering Hole</h2>
+			<hr />
+			<br>
+		<ul>
+			<li>use your gold coins to purchase an item</li>
+			<br>
+			<li>Each item is worth 100 gold coins</li>
+			<br>
+			<li>Click Begin Battle button once you have chosen an item</li>	
+			<div class="battle-button" style = "left:50px;">
+			<button class="rpgui-button" type="button" style="width:fit-content; margin: 0 auto;"><p>Begin Battle</p></button>
+		</div>
+		</ul>
+	
+		</div>
+	</div> 
+	</div> 
+		<br>
+		</div>
+	</div> 
+	</div> 
+-->
+	<!-- items to be purchased -->
+	<!--
+	 <div class="rpgui-container framed" style="height:300px; width:600px; top: 600px; left: 350px; margin: 0 auto;">
+		<h2>Shop</h2>
+		<hr />
+
+		<div class="rpgui-icon sword"></div>
+		<div class="rpgui-icon sword"></div>
+		<div class="rpgui-icon sword"></div>
+		<div class="rpgui-icon shield"></div>
+		<div class="rpgui-icon shield"></div>
+		<div class="rpgui-icon shield"></div>
+		<div class="rpgui-icon potion-red"></div>
+		<div class="rpgui-icon potion-red"></div>
+		<div class="rpgui-icon potion-green"></div>
+		<div class="rpgui-icon potion-green"></div>
+		<div class="rpgui-icon potion-green"></div>
+		<div class="rpgui-icon potion-blue"></div>
+		<div class="rpgui-icon potion-blue"></div>
+		<div class="rpgui-icon potion-blue"></div>
+		
+		<br /><br />
+		<br /><br />
 	</div>
+
+		<div class="rpgui-container framed" style="height:260px; width:600px; top: 950px; left: 350px; margin: 0 auto;">
+		<h2>Item Description</h2>
+		<hr />
+
+		<p>Sword: gives you a +bonus</p>
+		<p>Shield: gives you a +bonus</p>
+		<p>Potion: gives you a +bonus</p>
+		</div> 
+-->
+		<!-- inventory -->
+<!--
+		 <div class="rpgui-container framed" style="height:670px; width:600px; top: 600px; left: 1580px; margin: 0 auto;">
+			<h1>character img</h1>
+			<br><br><br>
+			<h2>stats</h2>
+			<hr />
+			<p>display stats here?</p>
+			<p>display health bar?</p>
+			<br><br>
+			<h2>Iventory</h2>
+			<hr />
+	
+			<div class="rpgui-icon weapon-slot"></div>
+			<div class="rpgui-icon weapon-slot"></div>
+			<div class="rpgui-icon weapon-slot"></div>
+			<div class="rpgui-icon shield-slot"></div>
+			<div class="rpgui-icon shield-slot"></div>
+			<div class="rpgui-icon shield-slot"></div>
+			<div class="rpgui-icon armor-slot"></div>
+			<div class="rpgui-icon armor-slot"></div>
+			<div class="rpgui-icon armor-slot"></div>
+			<div class="rpgui-icon potion-slot"></div>
+			<div class="rpgui-icon potion-slot"></div>
+			<div class="rpgui-icon potion-slot"></div>
+			<br /><br /><br />
+			
+			<h2>Pouch</h2>
+			<hr />
+			<p><img src="/assets/images/img/coin.png" id="coin">
+				<input id="input-coin" type="number" name="coin" value="100" class="form-control" disabled="disabled"></p>
+			</div> 
+
+-->
+
+<!-- battle button -->
+<!--  <div class="battle-button" style = "position:relative; left:50px;">
+			<button class="rpgui-button" type="button" style="width:fit-content; margin: 0 auto;"><p>Begin Battle</p></button>
+		</div>
+	</div> 
+-->
+<!-- end store -->
+
+
+<!-- boss battle -->
+
+<!-- battle img -->
+<!--
+<div class="battlePage" style="height:100%; width: auto;">
+	<img src="/assets/images/img/boss-battle.png" alt="shop" id="bg-img">
+
+	<div class="rpgui-content"> 
+
+		<div class="title">
+			<h1>Swompé: A Donkey's Quest</h1>
+		</div>
+-->
+		<!-- battle instructions -->
+<!--
+		<div class="rpgui-container framed-golden" style="height:290px; width:1100px; top: 220px; left: 720px; margin: 0 auto;">
+			<h2>Boss Battle!</h2>
+			<hr>
+		<ul>
+			<li>Click on the Attack button to damange your enemy</li>
+			<br>
+			<li>It will roll the dice and calculate your damange</li>
+			<br>
+			<li>You can use your items to give you an advantage</li>
+			<br>
+			<center><button class="rpgui-button" type="button" style="width:fit-content; margin: 0 auto;"><p>ATTACK!</p></button></center>
+		</ul>
+		
+		<br>
+		</div>
+-->
+		<!-- player -->
+<!--
+		<div class="rpgui-container framed" style="height:620px; width:460px; top: 560px; left: 470px; margin: 0 auto;">
+		<h2>name</h2>
+
+		<!-- character img -->
+<!--
+		<img src="/assets/images/img/shrek.png" alt="battle shrek" id="shrek">
+		<br>	
+		<br>
+
+		<!-- hp bar -->
+<!--
+		<label>HP:</label>
+							<div id="hp-bar" data-value="0.99" class="rpgui-progress red"></div>		
+		</div>
+
+		
+		<!-- enemy -->
+<!--
+		<div class="rpgui-container framed" style="height:620px; width:460px; top: 560px; left: 1580px; margin: 0 auto;">
+			<h2>enemy</h2>
+
+			<!-- enemy img -->
+<!--
+			<img src="/assets/images/img/farqq.png" alt="enemy farq" id="farq">
+			<br>
+			<br>
+
+			<!-- hp bar -->
+<!--
+		<label>HP:</label>
+		<div id="hp-bar" data-value="0.99" class="rpgui-progress red"></div>
+		</div>
+
+		<!-- enemy quote/inventory -->
+<!--
+		<div class="rpgui-container framed" style="height:200px; width:660px; top: 1220px; left: 1500px; margin: 0 auto;">
+		<h1>"You fool! You cannot defeat me!"</h1>
+		<hr />
+		<div class="rpgui-icon sword"></div>
+		<div class="rpgui-icon shield"></div>
+		<div class="rpgui-icon potion-red"></div>
+		<div class="rpgui-icon potion-green"></div>
+		<div class="rpgui-icon weapon-slot"></div>
+		<div class="rpgui-icon shield-slot"></div>
+			<div class="rpgui-icon armor-slot"></div>
+			<div class="rpgui-icon potion-slot"></div>
+		</div>
+
+		<!-- player inventory -->
+<!--
+		<div class="rpgui-container framed" style="height:200px; width:660px; top: 1220px; left: 380px; margin: 0 auto;">
+			<h1>Inventory</h1>
+			<hr />
+			<div class="rpgui-icon sword"></div>
+			<div class="rpgui-icon shield"></div>
+			<div class="rpgui-icon potion-red"></div> 
+			<!-- <div class="rpgui-icon potion-green"></div>
+			<div class="rpgui-icon weapon-slot"></div>
+			<div class="rpgui-icon shield-slot"></div>
+				<div class="rpgui-icon armor-slot"></div>
+				<div class="rpgui-icon potion-slot"></div>
+
+	<!-- </div> -->
+
+
+<!-- attack button -->
+
+		<!-- <div class="attack-button" style = "position:relative; left:50px;">
+			<button class="rpgui-button" type="button" style="width:fit-content; margin: 0 auto;"><p>ATTACK!</p></button>
+		</div>
+	</div> -->
+<!-- </div> -->
+
+<!-- end boss battle -->
+
+
+<!-- winner screen -->
+
+<!-- winner img -->
+<!-- <div class="winPage">
+  <img src="/assets/images/img/boss-battle.png" alt="shop" id="bg-img">
+<div class="rpgui-content"> 
+	<div class="title">
+		<h1>Swompé: A Donkey's Quest</h1>
+	</div>
+	<img src="/assets/images/img/winner-screen.png" alt="shop" id="winner">
+		<div class="rpgui-container framed-golden" style="display:auto; height:auto; max-height:100%; width:8; top: 220px; left: 40.25%; margin: flex;">
+			<h2>WINNER!</h2>
+			<hr>
+			<h2>That'll do Donkey. That'll do</h2>
+			<img src="/assets/images/img/coin.png" id="coin-win">
+			<p id="hun-coin"> X 100</p>	
+	</div>
+</div> -->
+
+<!-- end winner screen -->
+
+
+<!-- loser screen -->
+
+<!-- loser img -->
+<!-- <div class="endPage">
+<img src="/assets/images/img/boss-battle.png" alt="battle castle" id="bg-img">
+
+<div class="rpgui-content"> 
+
+	<div class="title">
+		<h1>Swompé: A Donkey's Quest</h1>
+	</div>
+
+			
+			<div class="rpgui-container framed-golden" style="display: auto; height:auto; max-height:100%; top:220px; left: 43%; margin: flex;">
+				<h2>LOSER!</h2>
+				<hr>
+				<h2>It's all Ogre now!</h2>
+				<center>
+				<button class="rpgui-button" type="button"><p>Restart</p></button>
+	</div>
+	<img src='/assets/images/img/loser-screen.png' id="loser">
+
+</div>
+</div> -->
+<!-- end loser screen -->
 </body>

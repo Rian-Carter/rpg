@@ -1,12 +1,15 @@
-body {
-  background: #8A9400;
-  background-image: url(/assets/images/img/intro-background.png);
+/* body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+  -ms-background-size: cover;
   background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
-}
+  margin: auto;
+  padding: auto;
+
+} */
 
 .title {
   font-size: 40px;
@@ -24,8 +27,218 @@ body {
   margin: auto;
 }
 
+/*------------ UI ------------*/
+
+
+
+/* #bg-img {
+  background-size: cover;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+} */
+
+#titleScreen {
+background-image: url("/assets/images/img/shrek-into.png");
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+-ms-background-size: cover;
+background-size: cover;
+background-size: 100% 100%;
+background-repeat: no-repeat;
+margin: auto;
+padding: auto;
+min-height: 100%;
+min-width: 1024px;
+width: 100%;
+height: auto;
+position: fixed;
+background-position: center center;
+background-attachment: fixed;
+
+/* top: -50%; */
+/* left: -50%; */
+/* width: 200%; */
+/* height: 200%; */
+}
+
+.title {
+  font-size: 40px;
+  margin: 100px;
+}
+
+.button{
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  display: flex; 
+}
+
+.shop-button {
+  justify-content: center;
+  align-items: center;
+  height: 350px; /* to adjust up/down position */
+  display: flex;
+}
+
+.battle-button {
+  justify-content: center;
+  align-items: center;
+  height: 110%;
+  /* height: 2000px;  */
+  /* width: 2500px; */
+  width: 100%;
+  display: flex;
+}
+
+.attack-button {
+  justify-content: center;
+  align-items: center;
+  height: 110%;
+  /* height: 2000px;  */
+  /* width: 2500px; */
+  width: 100%;
+  display: flex;
+}
+
+
+
+/* .rpgui-button { */
+  /* margin: auto; */
+/* } */
+
 /* .intoImg, img{
   display: block;
       margin: 0 auto;
-      width: 60%;
+      width: 80%;
+      height: auto;
+} */
+
+#createCharacter {
+  /* margin: 1px; */
+  /* width:20%; */
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+#dice-roll {
+  display: block;
+      margin: auto;
+      max-width: 10%;
+      height: auto;
+      padding: 400px;
+      padding-left: 450px;
+      padding-top: 450px;
+      padding-bottom: 0px;
+}
+
+#character-frame {
+  width: 90%;
+  min-width: 500px;
+  margin: auto;
+
+}
+
+#coin {
+  height: 120px;
+  width:90px;
+  padding-left: 150px;
+  margin-right: 20px;
+}
+
+#input-coin {
+  /* display: block; */
+  height: 20px;
+  width:100px;
+  padding-left: 30px;
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align:top;
+  margin-top: 40px;
+}
+
+#shrek {
+  height: 420px;
+  width:400px;
+  padding-left: 5px;
+  margin-right: 20px;
+}
+
+#farq {
+  height: 420px;
+  width:300px;
+  padding-left: 30px;
+  margin-right: 20px;
+}
+
+#winner {
+  display: flex;
+  margin: 0 auto;
+  width: 20%;
+  height: auto;
+  padding: 400px;
+  padding-left: 500px;
+  padding-top: 300px;
+  /* border-radius: 50% */
+}
+
+#coin-win {
+  height: 120px;
+  width: 90px;
+  padding-left: 330px;
+  margin-right: 0 auto;
+}
+
+#hun-coin {
+  /* display: block; */
+  height: 20px;
+  width: 100px;
+  display: inline-block;
+  /* margin-right: 20px; */
+  vertical-align:top;
+  margin-top: 50px;
+}
+
+#loser {
+  display: flex;
+  margin: auto;
+  max-width: 40%;
+  height: auto;
+  /* padding: 400px; */
+  /* padding-left: 500px; */
+  padding-top: 300px; 
+}
+
+.restart-button {
+  margin: auto;
+  display: flex;
+  height: auto;
+  max-width: 40%;
+}
+
+/* .battlePage {
+  display: -webkit-box;
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  block-size: fit-content;
+} */
+
+/* .rpgui-container framed-golden {
+  display: flex;
+  margin: auto;
+  position: relative;
+  display: block;
+  max-width: 40%;
+  height: auto;
+  padding-top: 300px;
+  object-fit: contain;
 } */

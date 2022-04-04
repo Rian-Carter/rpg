@@ -24,7 +24,6 @@ $( function() {
     step: 5,
     slide: function( event, ui ) {
       $( "#amount" ).val( ui.value+"%");
-      console.log(($( "#audioVolumeSlider" ).slider( "value" ) / 100 )); //leave this in to show teammates
       Howler.volume(($( "#audioVolumeSlider" ).slider( "value" ) / 100 ));
     }
   });
