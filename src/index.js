@@ -14,7 +14,16 @@ let sound = new Howl({
 // Set global volume.
 Howler.volume(0.35);
 
-// Change global volume
+//Stuff we need to make vscode happy:
+
+let character = new Character();
+
+let enemy = new Enemy();
+
+character.battle(enemy);
+
+
+// Audio controls:
 
 $( function() {
   $( "#audioVolumeSlider" ).slider({
@@ -44,16 +53,67 @@ $("#audioPause").on("click", function(){
   sound.pause(); // this method for pause music
 }); 
 
+$(document).ready(function() {
+  
+    
+    $('#startGame').click(function() {
+      $('#titleScreen').hide();
+      $('#characterPage').show();
+    });
+
+    $('.shop-button').click(function() {
+      $('#characterPage').hide();
+      $('#storePage').show();
+    });
+
+    $('.battle-button').click(function() {
+      $('#storePage').hide();
+      $('#battlePage').show();
+    });
+
+    $('#loseButton').click(function() {
+      $('#battlePage').hide();
+      $('#endPage').show();
+    });
+
+    $('#winButton').click(function() {
+      $('#battlePage').hide();
+      $('#winPage').show();
+    });
+
+    $('#restartButton').click(function() {
+      $('#endPage').hide();
+      $('#characterPage').show();
+    });
+
+    $('#storeButton').click(function() {
+      $('#winPage').hide();
+      $('#storePage').show();
+    });
 
 
 
+     //----character page----
+     //disable button until character creation is done?
+     // dice roll button
+     // generate stats
+     // display stats
+     // display dice roll image
+     // display character image
 
 
+    //----shop----
+    // equip & purchase items
+    // decrease coin amount 
 
-let character = new Character();
-// console.log(character.classBonus("Donkey"));
 
-let enemy = new Enemy();
-// console.log(enemy.enemyGenerator());
+    //----battle----
+    // attack button
+    // use item 
+    // display damage ?
+    // reveal character & enemy image
+    //display character & enemy name 
 
-character.battle(enemy);
+    //coin needs to be linked 
+
+});
