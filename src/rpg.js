@@ -14,7 +14,7 @@ export default class Character {
   this.potion = 0;
   this.armor = 0;
   this.weapon = 0;
-  this.gold = 100;
+  this.gold = 300;
   this.totalGold = 0;
   this.wins = 0;
   this.xp = 0;
@@ -22,8 +22,11 @@ export default class Character {
 
 // levelUp() {
 //   this.xp = 0;
+//   this.level += 1;
+//   this.gold += 100;
+//   this.totalGold += 100;
 //   if (xp = 100 ) {
-//   return this.level + 1, this.gold + 100, this.totalGold + 100, this.xp = 0;
+//   return  this.xp = 0;
 //   }
 //   }
 
@@ -39,41 +42,45 @@ statGenerator() {
   this.cha = this.diceRoll();
   this.wis = this.diceRoll();
   this.con = this.diceRoll();
-  // this.hp = this.diceRoll();
+  return this.str && this.dex && this.int && this.cha && this.wis && this.con;
 }
 
 classBonus(className) {
+  this.hp = 250;
+  this.currentHp = 0;
   this.class = className;
+  this.statGenerator();
+  this.healthTracker();
   switch (this.class) {
     case ("Shrek"):
-      this.str + 20;
-      this.hp + 20;
-      this.currentHp + 20;
+      this.str += 20;
+      this.hp += 20;
+      this.currentHp += 20;
       break;
     case ("Donkey"):
-      this.wis + 20;
-      this.cha + 20;
+      this.wis += 20;
+      this.cha += 20;
       break;
-    case ("Gingerbread Man"):
-      this.dex + 20;
-      this.con + 20;
+    case ("Gingerbread"):
+      this.dex += 20;
+      this.con += 20;
       break;
     case ("Dragon"):
-      this.str + 20;
-      this.int + 20;
+      this.str += 20;
+      this.int += 20;
       break;
-    case ("Princess Fiona"):
-      this.cha + 20;
-      this.hp + 20;
-      this.currentHp + 20;
+    case ("Princess-Fiona"):
+      this.cha += 20;
+      this.hp += 20;
+      this.currentHp += 20;
       break;
-    case ("Puss In Boots"):
-      this.int + 20;
-      this.hp + 20;
-      this.currentHp + 20;
+    case ("Puss"):
+      this.int += 20;
+      this.hp += 20;
+      this.currentHp += 20;
       break;
   }
-  this.statGenerator();
+
 }
 
 //Items
@@ -135,8 +142,9 @@ buyArmor() {
 }
 
 generateGold() {
-  this.gold = this.gold + Math.floor(Math.random() * 100) + "Gold Coins.";
+  this.gold = this.gold + Math.floor(Math.random() * 100) + " Gold Coins.";
   this.totalGold = this.gold + this.totalGold;
+  return this.gold;
 }
 
 healthTracker() {
@@ -147,27 +155,33 @@ healthTracker() {
 
 // Core gameplay loop
 battle(enemy) {
+
 const characterRoll = this.diceRoll();
 const enemyRoll = enemy.diceRoll();
 const charAtk = this.str + this.dex + this.int + this.cha + this.wis + this.con;
 let charDamagePotential = parseInt(charAtk) + characterRoll;
 let enemyDamagePotential = enemy.atk + enemyRoll;
 if (charDamagePotential >= enemyDamagePotential) {
-  enemy.hp -= (charDamagePotential - enemyDamagePotential);
+  console.log("Player is doing " + charDamagePotential + "-" + enemyDamagePotential + " damage to the enemy");
+  enemy.currentHp -= (charDamagePotential - enemyDamagePotential);
   return this.endCombat(enemy); 
 } else (charDamagePotential <= enemyDamagePotential); {
-  this.hp -= (enemyDamagePotential - charDamagePotential);
+  this.currentHp -= (enemyDamagePotential - charDamagePotential);
   return this.endCombat(enemy);
 }
 }
 
 endCombat(enemy) {
-  if(enemy.hp <= 0) {
-    return "Enemy health is " + " " + enemy.hp;
-  } else if (this.hp <= 0) {
-    return "Your health is " + " " + this.hp;
+  if(enemy.currentHp <= 0) {
+    this.wins += 1;
+    this.xp += 50;
+    this.generateGold();
+    this.healthTracker();
+    return "Enemy health is " + " " + enemy.currentHp;
+  } else if (this.currentHp <= 0) {
+    return "Your health is " + " " + this.currentHp;
   } else {
-    return this.healthTracker() && this.battle(enemy) && this.wins +1 && this.xp + 50 && this.generateGold();
+    return [this.currentHp, enemy.currentHp];
     }
   }
 }

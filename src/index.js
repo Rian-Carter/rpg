@@ -20,9 +20,6 @@ let character = new Character();
 
 let enemy = new Enemy();
 
-character.battle(enemy);
-
-
 // Audio controls:
 
 $( function() {
@@ -40,11 +37,6 @@ $( function() {
 } );
 
 
-$("audioVolumeSlider").on("click", function(){
-  sound.play(); // this method for playing music
-});
-
-
 $("#audioPlay").on("click", function(){
   sound.play(); // this method for playing music
 });
@@ -53,22 +45,82 @@ $("#audioPause").on("click", function(){
   sound.pause(); // this method for pause music
 }); 
 
-$(document).ready(function() {
-  
-    
-    $('#startGame').click(function() {
-      $('#titleScreen').hide();
-      $('#characterPage').show();
-    });
+$('#startGame').click(function() {
+  $('#titleScreen').hide();
+  $('#characterPage').show();
+});
 
-    $('.shop-button').click(function() {
+     //----character page----
+      $('#dice-roll').click(function() {
+      character.classBonus($('#selectClass').val());
+      $( "#input-hp" ).val(character.currentHp);
+      $( "#input-str" ).val(character.str);
+      $( "#input-dex" ).val(character.dex);
+      $( "#input-int" ).val(character.int);
+      $( "#input-cha" ).val(character.cha);
+      $( "#input-wis" ).val(character.wis); 
+      $( "#input-con" ).val(character.con);
+      
+    });
+     //disable button until character creation is done?
+
+   //----shop----
+    $('#shop-button').click(function() {
+      character.name = $("#characterName").val();
+      $( "#displayName" ).text(character.name);
+      enemy.enemyGenerator();
+      $( "#input-coin" ).val(character.gold);
       $('#characterPage').hide();
       $('#storePage').show();
     });
 
+    $('#swordButton').click(function() {
+      character.buySword();
+      $( "#input-coin" ).val(character.gold);
+      $( "#swordInventory" ).text("x"+character.weapon);
+    });
+
+    $('#shieldButton').click(function() {
+      character.buyArmor();
+      $( "#input-coin" ).val(character.gold);
+      $( "#shieldInventory" ).text("x"+character.armor);
+    });
+
+    $('#potionButton').click(function() {
+      character.buyPotion();
+      $( "#input-coin" ).val(character.gold);
+      $( "#potionInventory" ).text("x"+character.potion);
+    });
+
+
     $('.battle-button').click(function() {
+      $( "#input-currentHp" ).val(character.currentHp);
+      $( "#input-EnemycurrentHp" ).val(enemy.currentHp);
+      $( "#showName" ).text(character.name);
       $('#storePage').hide();
       $('#battlePage').show();
+    });
+
+    //----battle----
+    // attack button
+    // use item 
+    // display damage ?
+
+    $('#attackButton').click(function() {
+      character.battle(enemy);
+      $( "#input-currentHp" ).val(character.currentHp);
+      $( "#input-EnemycurrentHp" ).val(enemy.currentHp);
+      
+      let playerCurrentHp = character.currentHp;
+      let enemyCurrentHp = enemy.currentHp;
+      if (playerCurrentHp <= 0) {
+        $('#battlePage').hide();
+        $('#endPage').show();
+      } else
+      if (enemyCurrentHp <= 0) {
+        $('#battlePage').hide();
+        $('#winPage').show();
+      }
     });
 
     $('#loseButton').click(function() {
@@ -82,38 +134,18 @@ $(document).ready(function() {
     });
 
     $('#restartButton').click(function() {
+      character.healthTracker();
+      enemy.healthTracker();
       $('#endPage').hide();
       $('#characterPage').show();
     });
 
     $('#storeButton').click(function() {
+      character.healthTracker();
+      enemy.healthTracker();
       $('#winPage').hide();
       $('#storePage').show();
     });
 
 
 
-     //----character page----
-     //disable button until character creation is done?
-     // dice roll button
-     // generate stats
-     // display stats
-     // display dice roll image
-     // display character image
-
-
-    //----shop----
-    // equip & purchase items
-    // decrease coin amount 
-
-
-    //----battle----
-    // attack button
-    // use item 
-    // display damage ?
-    // reveal character & enemy image
-    //display character & enemy name 
-
-    //coin needs to be linked 
-
-});

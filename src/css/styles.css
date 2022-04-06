@@ -146,6 +146,26 @@
   background-attachment: fixed;
 }
 
+#displayName {
+  color: white;
+}
+
+#showName {
+  color: white;
+}
+
+#swordInventory {
+  color: rgb(0, 221, 255);
+}
+
+#shieldInventory {
+  color: rgb(0, 221, 255);
+}
+
+#potionInventory {
+  color: rgb(0, 221, 255);
+}
+
 .title {
   font-size: 40px;
   margin: 100px;
@@ -183,15 +203,18 @@
 
 
 #dice-roll {
-  display: block;
-      margin: auto;
-      max-width: 10%;
-      height: auto;
-      padding: 400px;
-      padding-left: 450px;
-      padding-top: 450px;
-      padding-bottom: 0px;
+    background-color: transparent;
+    position: relative;
+    left:43.5%;
+    top: 450px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    border: none;
+    outline: none;
+    /* box-shadow: 5px 10px; */
 }
+
 
 #character-frame {
   width: 90%;
@@ -269,4 +292,36 @@
   display: flex;
   height: auto;
   max-width: 40%;
+}
+
+.characterPage-font {
+  font-size: 14px;
+}
+
+.storePage-font {
+  font-size: 14px;
+}
+
+.battlePage-font {
+  font-size: 14px;
+}
+
+.loserPage-font{
+  font-size: 14px;
+}
+
+.winPage-font {
+  font-size: 14px;
+}
+
+#swordButton, #battle-sword {
+  cursor: url("img/cursor/point.png") 10 0, auto;
+}
+
+#shieldButton, #battle-shield {
+  cursor: url("img/cursor/point.png") 10 0, auto;
+}
+
+#potionButton, #battle-potion {
+  cursor: url("img/cursor/point.png") 10 0, auto;
 }
