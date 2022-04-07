@@ -1,8 +1,8 @@
-# _{Swompé: A Donkey's Quest}_
+# _Swompé: A Donkey's Quest_
 
-#### By _**{Rian Carter, Anthony Gladden, Cameron Johnson, Z Perez, & Rob Sameh}**_
+#### By _**Rian Carter,  Anthony Gladden, Cameron Johnson,  Z Perez, & Rob Sameh**_
 
-#### _{A Shrek Themed Browser Based Role Playing Game}_
+#### _A Shrek Themed Browser Based Role Playing Game._
 
 ## Technologies Used
 
@@ -16,30 +16,59 @@
 
 ## Description
 
-_{Fill out: 
-* Student project for Team week (give description of Team Week)
-* Collaborative effort
-* What the project does (go over game flow)
-1. Start the game 
-2. Make player’s character 
-3. Go to the Store “Ye olde watering hole”
-4. Begin fight (generate random enemy)
-   a. Player loses (Game Over)
-      i. Display player’s score
-      ii. Make a new character
-   b. Player Wins!
-      i. Get Gold
-      ii. Continue fighting (generate random enemy)  || Exit combat
-5. Winner screen 
-6. Go back to Step 3
+Swompé: A Donkey's Quest is a shrek themed role playing game web application created for Epicodus Team Week where users can create a character, equip items and battle enemies! This project was desgined to demostrate our abilities to collaborate effectively and present a working project by a specific deadline. 
+ 
+#### Gameplay
+1. Click Start Game
+2. Insert hero name
+3. Choose a class
+4. Roll d20 to generate stats
+5. Go to the Store “Ye olde watering hole”
+6. Purchase and equip an item
+7. Click Begin Battle
+8. Fight your enemy by clicking Attack
+9. Need an advantage? use your items!
+10. Player Wins: gains 100 gold coins, and experience points. Players may continue to fight and purchase items.
+12. Player Lose: Game Over
 
-}_
 
 ## Setup/Installation Requirements
 
-Be sure to clone this repo to your local machine by running the command `git clone https://github.com/zperez0/rpg` . After you do this you should be able to open the index.html file located in the <rpg> folder in the web browser of your choosing. Don't forget to `npm install` and `npm run build`!
+**_Clone repository_**
 
-You may need to install Node.js on your machine in order to get working, you can follow the instructions here for more information: https://www.learnhowtoprogram.com/intermediate-javascript/getting-started-with-javascript/installing-node-js
+*  _Clone git repository to local machine_
+* run the command:
+ ```
+git clone https://github.com/zperez0/rpg`
+```
+ 
+ * open directory with VScode by typing:
+```
+
+code .
+
+```
+**_Build Enviroment and open project in browser:_**
+```
+
+npm install
+
+```
+
+```
+
+npm run build
+
+```
+
+```
+
+npm run start
+
+```
+* open the index.html file located in the <rpg> folder in the web browser of your choosing. 
+
+* You may need to install Node.js on your machine in order to get working, you can follow the instructions here for more information: https://www.learnhowtoprogram.com/intermediate-javascript/getting-started-with-javascript/installing-node-js
 
 
 ### Build Scripts
@@ -61,7 +90,7 @@ You may need to install Node.js on your machine in order to get working, you can
 
 ## License
 
-_{Zlib:
+Zlib:
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
   arising from the use of this software.
@@ -70,13 +99,11 @@ _{Zlib:
   including commercial applications, and to alter it and redistribute it
   freely, subject to the following restrictions:
 
-  1. The origin of this software must not be misrepresented; you must not
-     claim that you wrote the original software. If you use this software
+  1. The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software
      in a product, an acknowledgment in the product documentation would be
      appreciated but is not required.
   2. Altered source versions must be plainly marked as such, and must not be
      misrepresented as being the original software.
   3. This notice may not be removed or altered from any source distribution.
-}_
 
-Copyright (c) _2022_ _Carter Gladden Johnson Perez Sameh_
+Copyright (c) _2022_ _Carter, Gladden, Johnson, Perez, Sameh_
