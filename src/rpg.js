@@ -15,20 +15,10 @@ export default class Character {
   this.armor = 0;
   this.weapon = 0;
   this.gold = 300;
-  this.totalGold = 0;
+  this.totalGold = 300;
   this.wins = 0;
-  this.xp = 0;
+  this.currentXp = 0;  
 }
-
-// levelUp() {
-//   this.xp = 0;
-//   this.level += 1;
-//   this.gold += 100;
-//   this.totalGold += 100;
-//   if (xp = 100 ) {
-//   return  this.xp = 0;
-//   }
-//   }
 
 
 diceRoll() {
@@ -97,7 +87,7 @@ healthPotion() {
 itemSword() {
   let swordValue = 25;
   if (this.weapon > 0) {
-      this.weapon -= 1;
+      this.weapon = this.weapon -1;
     return this.str = this.str + swordValue;
   } else
     return this.str;
@@ -142,9 +132,8 @@ buyArmor() {
 }
 
 generateGold() {
-  this.gold = this.gold + Math.floor(Math.random() * 100) + " Gold Coins.";
   this.totalGold = this.gold + this.totalGold;
-  return this.gold;
+  return this.gold = this.gold  += 100;
 }
 
 healthTracker() {
@@ -162,7 +151,6 @@ const charAtk = this.str + this.dex + this.int + this.cha + this.wis + this.con;
 let charDamagePotential = parseInt(charAtk) + characterRoll;
 let enemyDamagePotential = enemy.atk + enemyRoll;
 if (charDamagePotential >= enemyDamagePotential) {
-  console.log("Player is doing " + charDamagePotential + "-" + enemyDamagePotential + " damage to the enemy");
   enemy.currentHp -= (charDamagePotential - enemyDamagePotential);
   return this.endCombat(enemy); 
 } else (charDamagePotential <= enemyDamagePotential); {
@@ -170,13 +158,24 @@ if (charDamagePotential >= enemyDamagePotential) {
   return this.endCombat(enemy);
 }
 }
+levelUp() {
+  if (this.currentXp === 100 ) {
+    this.level += 1;
+  this.gold += 100;
+  this.totalGold += 100;
+  return  this.currentXp = 0;
+  }
+  }
+
+
 
 endCombat(enemy) {
   if(enemy.currentHp <= 0) {
     this.wins += 1;
-    this.xp += 50;
+    this.currentXp += 50;
     this.generateGold();
     this.healthTracker();
+    this.levelUp();
     return "Enemy health is " + " " + enemy.currentHp;
   } else if (this.currentHp <= 0) {
     return "Your health is " + " " + this.currentHp;

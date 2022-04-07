@@ -211,6 +211,10 @@
 																																																			<!-- battle button -->
 			<p><img src="/assets/images/img/coin.png" id="coin">
 				<input id="input-coin" type="number" name="coin" value="0" class="form-control" disabled="disabled"></p>
+				<label>Level:</label>
+				<!-- <td><label for="currentHp" class="control-label" style="font-size: 15px;">Health:</label></td> -->
+				<td><input id="input-currentLeve" type="number" name="level" value="0" class="form-control" disabled="disabled" style="font-size: 15px;"></td>
+				<br><br><br>
 		</div> 
 	</div> 
 </div>
@@ -261,11 +265,16 @@
 			<!-- <td><label for="currentHp" class="control-label" style="font-size: 15px;">Health:</label></td> -->
 			<td><input id="input-currentHp" type="number" name="hp" value="0" class="form-control" disabled="disabled" style="font-size: 15px;"></td>
 			<br><br><br>
+			<label>Level:</label>
+			<!-- <td><label for="currentHp" class="control-label" style="font-size: 15px;">Health:</label></td> -->
+			<td><input id="input-currentLevel" type="number" name="level" value="0" class="form-control" disabled="disabled" style="font-size: 15px;"></td>
+			<br><br><br>
 			<!-- <div id="playerHpBar" data-value="0.99" class="rpgui-progress red"></div> -->
 			<h1>Inventory:</h1><hr>
-			<div id= "battle-sword"class="rpgui-icon sword"></div>
-			<div id= "battle-shield" class="rpgui-icon shield"></div>
-			<div id= "battle-potion" class="rpgui-icon potion-red"></div>	
+			<!-- <div id="swordInventory" class="rpgui-icon sword"><label input type="text" value="0" class="form-control" disabled="disabled" style="color:rgb(0, 221, 255)">x0</label></div> -->
+			<div id="battle-sword"class="rpgui-icon sword"><label input type="text" value="0" class="form-control" disabled="disabled" style="color:rgb(0, 221, 255)">x0</label></div>
+			<div id="battle-shield" class="rpgui-icon shield"><label input type="text" value="0" class="form-control" disabled="disabled" style="color:rgb(0, 221, 255)">x0</label></div>
+			<div id="battle-potion" class="rpgui-icon potion-red"><label input type="text" value="0" class="form-control" disabled="disabled" style="color:rgb(0, 221, 255)">x0</label></div>	
 		</div>
 																																																			<!-- enemy -->
 		<div class="rpgui-container framed" style="height:620px; width:460px; top: 500px; left: 1580px; margin: 0 auto;">

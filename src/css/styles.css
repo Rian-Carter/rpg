@@ -166,6 +166,19 @@
   color: rgb(0, 221, 255);
 }
 
+#battle-sword {
+  color: rgb(0, 221, 255);
+}
+
+#battle-shield {
+  color: rgb(0, 221, 255);
+}
+
+#battle-potion {
+  color: rgb(0, 221, 255);
+}
+
+
 .title {
   font-size: 40px;
   margin: 100px;

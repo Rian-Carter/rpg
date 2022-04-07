@@ -2,7 +2,7 @@ export default class Enemy {
   constructor() {
     this.name = "";
     this.atk = 75;
-    this.hp = 200;
+    this.hp = 250;
     this.currentHp = 0;
     this.level = 1;
     this.bonus = 1;

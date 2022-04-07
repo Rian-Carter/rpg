@@ -70,6 +70,7 @@ $('#startGame').click(function() {
       $( "#displayName" ).text(character.name);
       enemy.enemyGenerator();
       $( "#input-coin" ).val(character.gold);
+      $( "#input-currentLeve" ).val(character.level);
       $('#characterPage').hide();
       $('#storePage').show();
     });
@@ -96,21 +97,40 @@ $('#startGame').click(function() {
     $('.battle-button').click(function() {
       $( "#input-currentHp" ).val(character.currentHp);
       $( "#input-EnemycurrentHp" ).val(enemy.currentHp);
+      $( "#input-currentLevel" ).val(character.level);
+      $( "#battle-sword" ).text("x"+ character.weapon);
+      $( "#battle-shield" ).text("x"+ character.armor);
+      $( "#battle-potion" ).text("x"+ character.potion);
       $( "#showName" ).text(character.name);
       $('#storePage').hide();
       $('#battlePage').show();
     });
 
+
     //----battle----
     // attack button
     // use item 
     // display damage ?
+    $('#battle-sword').click(function() {
+      character.itemSword(); 
+      $( "#battle-sword" ).text("x"+ character.weapon);
+    });
+
+      $('#battle-shield').click(function() {
+        character.itemArmor(); 
+        $( "#battle-shield" ).text("x"+ character.armor);
+      });
+
+        $('#battle-potion').click(function() {
+          character.healthPotion(); 
+          $( "#battle-potion" ).text("x"+ character.potion);
+          $( "#input-currentHp" ).val(character.currentHp);
+        });
 
     $('#attackButton').click(function() {
       character.battle(enemy);
       $( "#input-currentHp" ).val(character.currentHp);
       $( "#input-EnemycurrentHp" ).val(enemy.currentHp);
-      
       let playerCurrentHp = character.currentHp;
       let enemyCurrentHp = enemy.currentHp;
       if (playerCurrentHp <= 0) {
@@ -122,6 +142,7 @@ $('#startGame').click(function() {
         $('#winPage').show();
       }
     });
+
 
     $('#loseButton').click(function() {
       $('#battlePage').hide();
@@ -143,6 +164,8 @@ $('#startGame').click(function() {
     $('#storeButton').click(function() {
       character.healthTracker();
       enemy.healthTracker();
+      $( "#input-coin" ).val(character.gold);
+      $( "#input-currentLeve" ).val(character.level);
       $('#winPage').hide();
       $('#storePage').show();
     });
