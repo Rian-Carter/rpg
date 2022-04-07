@@ -48,7 +48,7 @@ You may need to install Node.js on your machine in order to get working, you can
 
 `npm run start` - This runs an arbitrary command specified in the package's "start" property of its "scripts" object. If no "start" property is specified on the "scripts" object, it will run node server.js. 
 
-`npm run build` - Build for production
+`npm run build` - Build for production.
 
 ## Known Bugs
 
