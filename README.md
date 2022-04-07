@@ -71,14 +71,6 @@ npm run start
 * You may need to install Node.js on your machine in order to get working, you can follow the instructions here for more information: https://www.learnhowtoprogram.com/intermediate-javascript/getting-started-with-javascript/installing-node-js
 
 
-### Build Scripts
-
-`npm install` - This command installs a package and any packages that it depends on.
-
-`npm run start` - This runs an arbitrary command specified in the package's "start" property of its "scripts" object. If no "start" property is specified on the "scripts" object, it will run node server.js. 
-
-`npm run build` - Build for production
-
 ## Known Bugs
 
 * Please report any issues to: 
